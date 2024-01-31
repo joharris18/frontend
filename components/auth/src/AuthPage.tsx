@@ -7,8 +7,6 @@ import { Button, iconSize } from "@revolt/ui";
 
 import MdDarkMode from "@material-design-icons/svg/filled/dark_mode.svg?component-solid";
 
-import wideSvg from "../../../packages/client/public/assets/wide.svg";
-
 import { LocaleSelector } from "./LocaleSelector";
 import background from "./background.jpg";
 import { FlowBase } from "./flows/Flow";
@@ -20,6 +18,7 @@ import FlowLogin from "./flows/FlowLogin";
 import FlowResend from "./flows/FlowResend";
 import FlowReset from "./flows/FlowReset";
 import FlowVerify from "./flows/FlowVerify";
+import wideSvg from "./flows/logo.png";
 
 /**
  * Authentication page layout
@@ -129,7 +128,7 @@ const Bullet = styled("div")`
  * Revolt Wordmark
  */
 const Logo = styled("img")`
-  height: 24px;
+  height: 180px;
 `;
 
 let a = false;
@@ -154,10 +153,10 @@ export function AuthPage() {
           <MdDarkMode {...iconSize("24px")} />
         </Button>
       </Nav>
-      {/*<Nav>
+      <Nav>
         <Logo src={wideSvg} />
         <LocaleSelector />
-      </Nav>*/}
+      </Nav>
       <FlowBase>
         <Routes>
           <Route path="/check" component={FlowCheck} />
@@ -201,7 +200,7 @@ export function AuthPage() {
           </NavItems>
         </NavItems>
         <NavItems hide>
-          {t("general.image_by")} @fakurian
+          {t("general.image_by")} Pauline Loroy
           <Bullet />
           <a href="https://unsplash.com/" target="_blank" rel="noreferrer">
             unsplash.com

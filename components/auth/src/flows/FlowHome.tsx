@@ -3,10 +3,9 @@ import { useTranslation } from "@revolt/i18n";
 import { Link, useNavigate } from "@revolt/routing";
 import { Button, Column, Row, Typography, styled } from "@revolt/ui";
 
-import RevoltSvg from "../../../../packages/client/public/assets/wide.svg?component-solid";
-
 import { FlowTitle } from "./Flow";
 import { Fields, Form } from "./Form";
+import RevoltSvg from "./logo.png";
 
 /**
  * Account switcher UI
@@ -16,11 +15,14 @@ const AccountSwitcher = styled(Column)`
   margin-top: 8px;
 `;
 
-const Logo = styled(RevoltSvg)`
-  margin: auto;
-  fill: ${(props) => props.theme!.colours.foreground};
-  /* filter: invert(1); */
-`;
+/**
+ * Logo Styles
+ */
+
+const LogoStyle = {
+  width: "180px",
+  margin: "0 auto",
+};
 
 /**
  * Flow for logging into an account
@@ -48,7 +50,8 @@ export default function FlowHome() {
   return (
     <>
       <Column gap="xl">
-        <Logo />
+        {/*put logo here*/}
+        <img src={RevoltSvg} style={LogoStyle} />
 
         <Column>
           <b
@@ -61,7 +64,6 @@ export default function FlowHome() {
             }}
           >
             <span>Find your community,</span>
-            <br />
             <span>connect with the world.</span>
           </b>
           <span style={{ "text-align": "center", opacity: "0.5" }}>
