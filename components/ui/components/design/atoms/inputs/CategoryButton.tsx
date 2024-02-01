@@ -160,6 +160,7 @@ const BlankIconWrapper = styled(IconWrapper)`
 const Description = styled.span`
   font-weight: 500;
   font-size: 12px;
+  white-space: pre-wrap;
   color: ${(props) =>
     props.theme!.colours["component-categorybtn-foreground-description"]};
 

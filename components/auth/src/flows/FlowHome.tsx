@@ -67,8 +67,8 @@ export default function FlowHome() {
             <span>connect with the world.</span>
           </b>
           <span style={{ "text-align": "center", opacity: "0.5" }}>
-            Revolt is one of the best ways to stay connected with your friends
-            and community, anywhere, anytime.
+            KimaniLife is one of the best ways to stay connected with your
+            friends and community, anywhere, anytime.
           </span>
         </Column>
 

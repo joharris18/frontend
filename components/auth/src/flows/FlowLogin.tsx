@@ -45,7 +45,7 @@ export default function FlowLogin() {
       {/*<FlowTitle subtitle={t("login.subtitle")} emoji="wave">
         {t("login.welcome")}
       </FlowTitle>*/}
-      <strong>
+      {/* <strong>
         You are logging into a limited demo of the new Revolt client.
       </strong>
 
@@ -59,7 +59,7 @@ export default function FlowLogin() {
           GitHub issues
         </a>{" "}
         where possible.
-      </span>
+      </span> */}
 
       <Form onSubmit={login}>
         <Fields fields={["email", "password"]} />

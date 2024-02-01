@@ -5,8 +5,9 @@ import { styled } from "solid-styled-components";
  */
 export const OverflowingText = styled("div")`
   overflow: hidden;
-  white-space: nowrap;
+  white-space: pre-wrap;
   text-overflow: ellipsis;
+  font-weight: 700;
 
   * {
     overflow: hidden;

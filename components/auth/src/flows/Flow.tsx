@@ -10,13 +10,14 @@ import wave from "./wave.svg";
  * Container for authentication page flows
  */
 export const FlowBase = styled(Column)`
-  background: ${(props) =>
+  /*background: ${(props) =>
     props.theme!.colours["messaging-message-box-background"]};
-  color: ${(props) => props.theme!.colours["messaging-message-box-foreground"]};
+  color: ${(props) =>
+    props.theme!.colours["messaging-message-box-foreground"]};*/
 
-  /* background-color: rgba(36, 36, 36, 0.75);
-   backdrop-filter: blur(20px); */
-  /* // border: 2px solid rgba(128, 128, 128, 0.15); */
+  background-color: rgba(36, 36, 36, 0.75);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(128, 128, 128, 0.15);
 
   gap: ${(props) => props.theme!.gap.lg};
 

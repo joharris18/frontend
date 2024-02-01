@@ -22,7 +22,11 @@ import {
   styled,
 } from "@revolt/ui";
 
+import support from "../../../../components/auth/src/customer-support.png";
 import wideSvg from "../../../../components/auth/src/flows/logo.png";
+import program from "../../../../components/auth/src/hand-shake.png";
+import career from "../../../../components/auth/src/hired.png";
+import global from "../../../../components/auth/src/world.png";
 
 import { HeaderIcon } from "./common/CommonHeader";
 
@@ -84,9 +88,7 @@ export function HomePage() {
   const client = useClient();
 
   /* additional styles */
-  const styles = {
-    color: "black",
-  };
+  const styles = {};
 
   // check if we're revolt.chat; if so, check if the user is in the Lounge
   const showLoungeButton = IS_REVOLT;
@@ -107,6 +109,7 @@ export function HomePage() {
         <Typography variant="home-page-title">
           {t("app.special.modals.onboarding.welcome")}
         </Typography>
+        {/* TOP BUTTONS */}
         <Buttons>
           <SeparatedColumn>
             <CategoryButton
@@ -120,6 +123,7 @@ export function HomePage() {
               icon={<BiSolidPlusCircle size={24} />}
             >
               {t("app.home.group")}
+              <br />
             </CategoryButton>
             <Switch fallback={null}>
               <Match when={showLoungeButton && isInLounge}>
@@ -190,7 +194,7 @@ export function HomePage() {
               //   })
               // }
               description={t("app.home.feat1_desc")}
-              icon={<BiSolidPlusCircle size={24} />}
+              icon={<img src={program} style={{ width: "32px" }} />}
             >
               {t("app.home.feat1")}
             </CategoryButton>
@@ -214,16 +218,18 @@ export function HomePage() {
                 </CategoryButton>
               </Match>
             </Switch>
+
             <CategoryButton
               // onClick={() =>
               //   window.open("https://insrt.uk/donate?utm_source=revoltapp")
               // }
               description={t("app.home.feat2_desc")}
-              icon={<BiRegularMoney size={24} />}
+              icon={<img src={global} style={{ width: "32px" }} />}
             >
               {t("app.home.feat2")}
             </CategoryButton>
           </SeparatedColumn>
+
           <SeparatedColumn>
             <Show when={IS_REVOLT}>
               <CategoryButton
@@ -235,17 +241,17 @@ export function HomePage() {
               </CategoryButton>
             </Show>
             <CategoryButton
-              description={t("app.home.feat3_desc")}
-              icon={<BiSolidMegaphone size={24} />}
+              description={t("app.home.feat4_desc")}
+              icon={<img src={career} style={{ width: "32px" }} />}
             >
-              {t("app.home.feat3")}
+              {t("app.home.feat4")}
             </CategoryButton>
             <CategoryButton
               // onClick={() => modalController.push({ type: "settings" })}
-              description={t("app.home.feat4_desc")}
-              icon={<BiSolidCog size={24} />}
+              description={t("app.home.feat3_desc")}
+              icon={<img src={support} style={{ width: "32px" }} />}
             >
-              {t("app.home.feat4")}
+              {t("app.home.feat3")}
             </CategoryButton>
           </SeparatedColumn>
         </Buttons>
