@@ -22,7 +22,7 @@ import {
   styled,
 } from "@revolt/ui";
 
-import wideSvg from "../../../client/public/assets/wide.svg";
+import wideSvg from "../../../../components/auth/src/flows/logo.png";
 
 import { HeaderIcon } from "./common/CommonHeader";
 
@@ -72,9 +72,7 @@ const SeparatedColumn = styled(Column)`
  */
 const Image = styled("img")`
   margin-top: 0.5em;
-  height: 36px;
-
-  filter: invert(100%);
+  width: 100px;
 `;
 
 /**
@@ -84,6 +82,11 @@ export function HomePage() {
   const t = useTranslation();
   const navigate = useNavigate();
   const client = useClient();
+
+  /* additional styles */
+  const styles = {
+    color: "black",
+  };
 
   // check if we're revolt.chat; if so, check if the user is in the Lounge
   const showLoungeButton = IS_REVOLT;
@@ -99,11 +102,10 @@ export function HomePage() {
         </HeaderIcon>
         Home
       </Header>
-      <Content>
+      <Content style={{ display: "flex", "align-items": "center" }}>
+        <Image src={wideSvg} />
         <Typography variant="home-page-title">
           {t("app.special.modals.onboarding.welcome")}
-          <br />
-          <Image src={wideSvg} />
         </Typography>
         <Buttons>
           <SeparatedColumn>
@@ -138,7 +140,7 @@ export function HomePage() {
                 </CategoryButton>
               </Match>
             </Switch>
-            <CategoryButton
+            {/* <CategoryButton
               onClick={() =>
                 window.open("https://insrt.uk/donate?utm_source=revoltapp")
               }
@@ -146,7 +148,7 @@ export function HomePage() {
               icon={<BiRegularMoney size={24} />}
             >
               {t("app.home.donate")}
-            </CategoryButton>
+            </CategoryButton> */}
           </SeparatedColumn>
           <SeparatedColumn>
             <Show when={IS_REVOLT}>
@@ -158,12 +160,12 @@ export function HomePage() {
                 {t("app.home.discover")}
               </CategoryButton>
             </Show>
-            <CategoryButton
+            {/* <CategoryButton
               description={t("app.home.feedback_desc")}
               icon={<BiSolidMegaphone size={24} />}
             >
               {t("app.home.feedback")}
-            </CategoryButton>
+            </CategoryButton> */}
             <CategoryButton
               onClick={() => modalController.push({ type: "settings" })}
               description={t("app.home.settings-tooltip")}
@@ -173,11 +175,86 @@ export function HomePage() {
             </CategoryButton>
           </SeparatedColumn>
         </Buttons>
-        <Show when={IS_DEV}>
+
+        {/* FEATURES */}
+        <Typography variant="home-page-title">
+          {t("app.special.modals.onboarding.features")}
+        </Typography>
+        <Buttons>
+          <SeparatedColumn>
+            <CategoryButton
+              // onClick={() =>
+              //   modalController.push({
+              //     type: "create_group",
+              //     client: client()!,
+              //   })
+              // }
+              description={t("app.home.feat1_desc")}
+              icon={<BiSolidPlusCircle size={24} />}
+            >
+              {t("app.home.feat1")}
+            </CategoryButton>
+
+            <Switch fallback={null}>
+              <Match when={showLoungeButton && isInLounge}>
+                <CategoryButton
+                  onClick={() => navigate("/server/01F7ZSBSFHQ8TA81725KQCSDDP")}
+                  description={t("app.home.feat2_desc")}
+                  icon={<BiSolidRightArrowCircle size={24} />}
+                >
+                  {t("app.home.feat2")}
+                </CategoryButton>
+              </Match>
+              <Match when={showLoungeButton && !isInLounge}>
+                <CategoryButton
+                  description={t("app.home.feat2_desc")}
+                  icon={<BiSolidRightArrowCircle size={24} />}
+                >
+                  {t("app.home.feat2")}
+                </CategoryButton>
+              </Match>
+            </Switch>
+            <CategoryButton
+              // onClick={() =>
+              //   window.open("https://insrt.uk/donate?utm_source=revoltapp")
+              // }
+              description={t("app.home.feat2_desc")}
+              icon={<BiRegularMoney size={24} />}
+            >
+              {t("app.home.feat2")}
+            </CategoryButton>
+          </SeparatedColumn>
+          <SeparatedColumn>
+            <Show when={IS_REVOLT}>
+              <CategoryButton
+                onClick={() => navigate("/discover")}
+                description={t("app.home.feat3_desc")}
+                icon={<BiSolidCompass size={24} />}
+              >
+                {t("app.home.feat3")}
+              </CategoryButton>
+            </Show>
+            <CategoryButton
+              description={t("app.home.feat3_desc")}
+              icon={<BiSolidMegaphone size={24} />}
+            >
+              {t("app.home.feat3")}
+            </CategoryButton>
+            <CategoryButton
+              // onClick={() => modalController.push({ type: "settings" })}
+              description={t("app.home.feat4_desc")}
+              icon={<BiSolidCog size={24} />}
+            >
+              {t("app.home.feat4")}
+            </CategoryButton>
+          </SeparatedColumn>
+        </Buttons>
+
+        {/* <Show when={IS_DEV}>
           <Button style={{ margin: "auto" }} onClick={() => navigate("/dev")}>
             Open Development Page
           </Button>
-        </Show>
+        </Show> */}
       </Content>
     </Base>
   );
